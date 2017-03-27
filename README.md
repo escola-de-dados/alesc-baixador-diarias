@@ -13,7 +13,7 @@ Os links para os PDFs respeitam uma lógica:
 
 O comando acima baixa todos os arquivos do número 62000 até o 62999... eles podem ser alterados para baixar quaisquer números. 
 
-## 3. Renomear os arquivos PDF usando o bash
+## 3. Renomear os arquivos PDF usando o bash (https://www.gnu.org/software/bash/)
 
 Primeiro apagar aqueles que forem menor que 71kb. Em seguida, no *bash*, digitar:
 

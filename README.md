@@ -7,14 +7,13 @@ Os links para os PDFs respeitam uma lógica:
 
 ## 1. Instalar o wget (https://www.gnu.org/software/wget/)
 
+Na maior parte das distribuições GNU/Linux já vem instalado; nas baseadas em Debian (Ubuntu, Mint etc.), basta rodar (caso não esteja instalado):
+
+    sudo apt-get install wget
+    
+
 ## 2. Digitar na linha de comando:
 
-``for i in {62000..62999} do wget http://diarias.alesc.sc.gov.br/prestacao-contas/$i done``
+``for i in {62000..62999}; do wget -c -t 3 -O "$i.pdf" "http://diarias.alesc.sc.gov.br/prestacao-contas/$i"; done``
 
-O comando acima baixa todos os arquivos do número 62000 até o 62999... eles podem ser alterados para baixar quaisquer números. 
-
-## 3. Renomear os arquivos PDF usando o bash (https://www.gnu.org/software/bash/)
-
-Primeiro apagar aqueles que forem menor que 71kb. Em seguida, no *bash*, digitar:
-
-``for f in *; do mv "$f" "$f.pdf"; done``
+O comando acima baixa todos os arquivos do número `62000` ao `62999` - você pode alterá-los para baixar outros PDFs desejados - e os salva no diretório corrente (em que o comando foi executado) com o nome `<NUMERO>.pdf`. Caso exista algum erro de conexão, o comando tentará 3 vezes (`-t 3`) e, caso o download tenha sido interrompido, ele continuará de onde parou (`-c`).
